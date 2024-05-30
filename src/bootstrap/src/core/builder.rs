@@ -15,7 +15,7 @@ use std::time::{Duration, Instant};
 
 use crate::core::build_steps::tool::{self, SourceType};
 use crate::core::build_steps::{
-    check, clean, clippy, compile, dist, doc, install, llvm, run, setup, test, vendor,
+    check, clean, clippy, compile, dist, doc, install, llvm, run, setup, test, vendor, others
 };
 use crate::core::config::flags::{Color, Subcommand};
 use crate::core::config::{DryRun, SplitDebuginfo, TargetSelection};
@@ -920,6 +920,8 @@ impl<'a> Builder<'a> {
                 dist::PlainSourceTarball,
                 dist::BuildManifest,
                 dist::ReproducibleArtifacts,
+                // others
+                others::CargoLlvmCov,
             ),
             Kind::Install => describe!(
                 install::Docs,
