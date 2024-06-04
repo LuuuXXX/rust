@@ -15,7 +15,7 @@ use std::time::{Duration, Instant};
 
 use crate::core::build_steps::tool::{self, SourceType};
 use crate::core::build_steps::{
-    check, clean, clippy, compile, dist, doc, install, llvm, run, setup, test, vendor, others
+    check, clean, clippy, compile, dist, doc, install, llvm, run, setup, test, vendor, others_tool, others_dist,
 };
 use crate::core::config::flags::{Color, Subcommand};
 use crate::core::config::{DryRun, SplitDebuginfo, TargetSelection};
@@ -751,7 +751,11 @@ impl<'a> Builder<'a> {
                 tool::RustdocGUITest,
                 tool::OptimizedDist,
                 tool::CoverageDump,
-                tool::LlvmBitcodeLinker
+                tool::LlvmBitcodeLinker,
+                // others
+                others_tool::CargoLlvmCov,
+                others_tool::Flamegraph,
+                others_tool::CargoFuzz,
             ),
             Kind::Clippy => describe!(
                 clippy::Std,
@@ -921,7 +925,9 @@ impl<'a> Builder<'a> {
                 dist::BuildManifest,
                 dist::ReproducibleArtifacts,
                 // others
-                others::CargoLlvmCov,
+                others_dist::CargoLlvmCov,
+                others_dist::Flamegraph,
+                others_dist::CargoFuzz,
             ),
             Kind::Install => describe!(
                 install::Docs,
