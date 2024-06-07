@@ -928,6 +928,7 @@ impl<'a> Builder<'a> {
                 others_dist::CargoLlvmCov,
                 others_dist::Flamegraph,
                 others_dist::CargoFuzz,
+                others_dist::XuanWusExtended,
             ),
             Kind::Install => describe!(
                 install::Docs,
