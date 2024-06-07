@@ -56,6 +56,3 @@
 [submodule "src/tools/cargo-fuzz"]
 	path = src/tools/cargo-fuzz
 	url = https://github.com/rust-fuzz/cargo-fuzz.git
-[submodule "src/tools/rustsec"]
-	path = src/tools/rustsec
-	url = https://github.com/rustsec/rustsec.git
