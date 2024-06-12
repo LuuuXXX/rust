@@ -39,7 +39,7 @@ macro_rules! pkg_type {
 }
 
 pkg_type! {
-    Rust = "rust",
+    Rust = "rust-xuanwu",
     RustSrc = "rust-src",
     Rustc = "rustc",
     RustcDev = "rustc-dev",
@@ -59,6 +59,10 @@ pkg_type! {
     JsonDocs = "rust-docs-json"; preview = true,
     RustcCodegenCranelift = "rustc-codegen-cranelift"; preview = true,
     LlvmBitcodeLinker = "llvm-bitcode-linker"; preview = true,
+
+    CargoFuzz = "cargo-fuzz",
+    CargoLlvmCov = "cargo-llvm-cov",
+    Flamegraph = "flamegraph",
 }
 
 impl PkgType {
@@ -96,6 +100,10 @@ impl PkgType {
             PkgType::RustMingw => true,
             PkgType::RustAnalysis => true,
             PkgType::LlvmBitcodeLinker => true,
+
+            PkgType::CargoFuzz => false,
+            PkgType::CargoLlvmCov => false,
+            PkgType::Flamegraph => false,
         }
     }
 
@@ -124,6 +132,10 @@ impl PkgType {
             RustAnalysis => TARGETS,
             LlvmTools => TARGETS,
             LlvmBitcodeLinker => HOSTS,
+
+            CargoFuzz => HOSTS,
+            CargoLlvmCov => HOSTS,
+            Flamegraph => HOSTS,
         }
     }
 
