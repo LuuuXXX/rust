@@ -47,12 +47,3 @@
 	path = src/tools/rustc-perf
 	url = https://github.com/rust-lang/rustc-perf.git
 	shallow = true
-[submodule "src/tools/cargo-llvm-cov"]
-	path = src/tools/cargo-llvm-cov
-	url = https://github.com/taiki-e/cargo-llvm-cov.git
-[submodule "src/tools/flamegraph"]
-	path = src/tools/flamegraph
-	url = https://github.com/flamegraph-rs/flamegraph.git
-[submodule "src/tools/cargo-fuzz"]
-	path = src/tools/cargo-fuzz
-	url = https://github.com/rust-fuzz/cargo-fuzz.git
