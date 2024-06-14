@@ -44,7 +44,7 @@ no_llvm_build
 /mingw-build/
 build/
 !build/cache/
-!build/cache/** */
+!build/cache/**
 !/compiler/rustc_mir_build/src/build/
 /build-rust-analyzer/
 /dist/
