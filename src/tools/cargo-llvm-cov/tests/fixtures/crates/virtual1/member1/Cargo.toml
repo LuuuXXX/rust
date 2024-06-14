@@ -1,0 +1,8 @@
+[package]
+name = "member1"
+version = "0.0.0"
+
+[dependencies]
+member2 = { path = "../member2" }
+member3 = { path = "../member2/member3" }
+member4 = { path = "../member2/src/member4" }

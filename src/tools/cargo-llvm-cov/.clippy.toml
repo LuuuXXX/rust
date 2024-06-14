@@ -1,0 +1,42 @@
+# Clippy configuration
+# https://doc.rust-lang.org/nightly/clippy/lint_configuration.html
+
+avoid-breaking-exported-api = false
+disallowed-names = []
+disallowed-macros = [
+    { path = "std::dbg", reason = "it is okay to use during development, but please do not include it in main branch" },
+]
+disallowed-methods = [
+    { path = "std::env::remove_var", reason = "this is not thread-safe and inherently unsafe; see <https://github.com/rust-lang/rust/issues/27970> for more" },
+    { path = "std::env::set_var", reason = "this is not thread-safe and inherently unsafe; see <https://github.com/rust-lang/rust/issues/27970> for more" },
+    # Since we are using fs-err crate (as `fs`), `fs::*` functions will output a better error.
+    { path = "std::fs::canonicalize", reason = "use `fs::canonicalize` instead" },
+    { path = "std::fs::copy", reason = "use `fs::copy` instead" },
+    { path = "std::fs::create_dir_all", reason = "use `fs::create_dir_all` instead" },
+    { path = "std::fs::create_dir", reason = "use `fs::create_dir` instead" },
+    { path = "std::fs::hard_link", reason = "use `fs::hard_link` instead" },
+    { path = "std::fs::metadata", reason = "use `fs::metadata` instead" },
+    { path = "std::fs::read_dir", reason = "use `fs::read_dir` instead" },
+    { path = "std::fs::read_link", reason = "use `fs::read_link` instead" },
+    { path = "std::fs::read_to_string", reason = "use `fs::read_to_string` instead" },
+    { path = "std::fs::read", reason = "use `fs::read` instead" },
+    { path = "std::fs::remove_dir_all", reason = "use `fs::remove_dir_all` instead" },
+    { path = "std::fs::remove_dir", reason = "use `fs::remove_dir` instead" },
+    { path = "std::fs::remove_file", reason = "use `fs::remove_file` instead" },
+    { path = "std::fs::rename", reason = "use `fs::rename` instead" },
+    { path = "std::fs::set_permissions", reason = "use `fs::set_permissions` instead" },
+    { path = "std::fs::symlink_metadata", reason = "use `fs::symlink_metadata` instead" },
+    { path = "std::fs::write", reason = "use `fs::write` instead" },
+    { path = "std::path::Path::canonicalize", reason = "use `fs::canonicalize` instead" },
+    { path = "std::path::Path::metadata", reason = "use `fs::metadata` instead" },
+    { path = "std::path::Path::read_dir", reason = "use `fs::read_dir` instead" },
+    { path = "std::path::Path::read_link", reason = "use `fs::read_link` instead" },
+    { path = "std::path::Path::symlink_metadata", reason = "use `fs::symlink_metadata` instead" },
+]
+disallowed-types = [
+    # Since we are using fs-err crate (as `fs`), `fs::*` types will output a better error.
+    { path = "std::fs::DirEntry", reason = "use `fs::DirEntry` instead" },
+    { path = "std::fs::File", reason = "use `fs::File` instead" },
+    { path = "std::fs::OpenOptions", reason = "use `fs::OpenOptions` instead" },
+    { path = "std::fs::ReadDir", reason = "use `fs::ReadDir` instead" },
+]

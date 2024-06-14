@@ -1,0 +1,7 @@
+[workspace]
+members = [
+    "member1",
+    "member2",
+    "member2/member3",
+    "member2/src/member4",
+]
