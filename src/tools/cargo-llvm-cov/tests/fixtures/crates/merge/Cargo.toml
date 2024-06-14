@@ -1,9 +1,0 @@
-[package]
-name = "merge"
-version = "0.0.0"
-
-[features]
-a = []
-b = []
-
-[workspace]

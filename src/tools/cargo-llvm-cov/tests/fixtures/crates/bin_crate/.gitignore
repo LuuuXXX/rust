@@ -1,3 +1,0 @@
-# One of the tests in this test crate runs binary with LLVM_PROFILE_FILE removed
-# As a result, default.profraw will be generated.
-default.profraw
