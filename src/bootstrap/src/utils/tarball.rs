@@ -121,7 +121,7 @@ impl OverlayKind {
                 .version(builder, &builder.release_num("rust-analyzer/crates/rust-analyzer")),
             OverlayKind::RustcCodegenCranelift => builder.rust_version(),
             OverlayKind::LlvmBitcodeLinker => builder.rust_version(),
-            OverlayKind::CargoLlvmCov => builder.release_num("cargo-llvm-cov"),
+            OverlayKind::CargoLlvmCov => String::from("0.6.9"),
             OverlayKind::Flamegraph => builder.release_num("flamegraph"),
             OverlayKind::CargoFuzz => builder.release_num("cargo-fuzz"),
         }
