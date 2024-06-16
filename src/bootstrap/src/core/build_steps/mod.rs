@@ -15,3 +15,6 @@ pub(crate) mod test;
 pub(crate) mod tool;
 pub(crate) mod toolstate;
 pub(crate) mod vendor;
+// extral tools steps
+pub(crate) mod others_tool;
+pub(crate) mod others_dist;

@@ -28,6 +28,10 @@ pub(crate) enum OverlayKind {
     RustAnalyzer,
     RustcCodegenCranelift,
     LlvmBitcodeLinker,
+    // extral tools
+    CargoLlvmCov,
+    Flamegraph,
+    CargoFuzz,
 }
 
 impl OverlayKind {
@@ -78,6 +82,21 @@ impl OverlayKind {
                 "LICENSE-MIT",
                 "src/tools/llvm-bitcode-linker/README.md",
             ],
+            OverlayKind::CargoLlvmCov => &[
+                "src/tools/cargo-llvm-cov/README.md",
+                "src/tools/cargo-llvm-cov/LICENSE-APACHE",
+                "src/tools/cargo-llvm-cov/LICENSE-MIT",
+            ],
+            OverlayKind::Flamegraph => &[
+                "src/tools/cargo-llvm-cov/README.md",
+                "src/tools/cargo-llvm-cov/LICENSE-APACHE",
+                "src/tools/cargo-llvm-cov/LICENSE-MIT", 
+            ],
+            OverlayKind::CargoFuzz => &[
+                "src/tools/cargo-fuzz/README.md",
+                "src/tools/cargo-fuzz/LICENSE-APACHE",
+                "src/tools/cargo-fuzz/LICENSE-MIT", 
+            ],
         }
     }
 
@@ -102,6 +121,10 @@ impl OverlayKind {
                 .version(builder, &builder.release_num("rust-analyzer/crates/rust-analyzer")),
             OverlayKind::RustcCodegenCranelift => builder.rust_version(),
             OverlayKind::LlvmBitcodeLinker => builder.rust_version(),
+            // extral tools
+            OverlayKind::CargoLlvmCov => String::from("0.6.9"),
+            OverlayKind::Flamegraph => builder.release_num("flamegraph"),
+            OverlayKind::CargoFuzz => builder.release_num("cargo-fuzz"),
         }
     }
 }

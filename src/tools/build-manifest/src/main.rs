@@ -322,7 +322,7 @@ impl Builder {
         self.add_artifacts_to(&mut manifest);
         self.add_profiles_to(&mut manifest);
         self.add_renames_to(&mut manifest);
-        manifest.pkg.insert("rust".to_string(), self.rust_package(&manifest));
+        manifest.pkg.insert("rust-xuanwu".to_string(), self.rust_package(&manifest));
 
         self.checksums.fill_missing_checksums(&mut manifest);
 
@@ -379,6 +379,9 @@ impl Builder {
             RustAnalysis,
             Miri,
             RustcCodegenCranelift,
+            CargoFuzz,
+            CargoLlvmCov,
+            Flamegraph,
         ]);
         profile("complete", &complete);
 
@@ -468,7 +471,10 @@ impl Builder {
                 | PkgType::RustAnalysis
                 | PkgType::JsonDocs
                 | PkgType::RustcCodegenCranelift
-                | PkgType::LlvmBitcodeLinker => {
+                | PkgType::LlvmBitcodeLinker
+                | PkgType::CargoFuzz
+                | PkgType::CargoLlvmCov
+                | PkgType::Flamegraph => {
                     extensions.push(host_component(pkg));
                 }
                 PkgType::RustcDev | PkgType::RustcDocs => {
@@ -608,7 +614,7 @@ impl Builder {
         self.write(&toml::to_string(&manifest).unwrap(), channel_name, ".toml");
         self.write(&manifest.date, channel_name, "-date.txt");
         self.write(
-            manifest.pkg["rust"].git_commit_hash.as_ref().unwrap(),
+            manifest.pkg["rust-xuanwu"].git_commit_hash.as_ref().unwrap(),
             channel_name,
             "-git-commit-hash.txt",
         );
