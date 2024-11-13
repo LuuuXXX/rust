@@ -12,7 +12,8 @@ elsa = "=1.7.1"
 ena = "0.14.3"
 indexmap = { version = "2.4.0" }
 jobserver_crate = { version = "0.1.28", package = "jobserver" }
-measureme = "11"
+# Fixme: change this to the version number after new measureme released
+measureme = { git = "https://github.com/rust-lang/measureme.git", branch = "master" }
 rustc-hash = "2.0.0"
 rustc-rayon = { version = "0.5.0", optional = true }
 rustc-stable-hash = { version = "0.1.0", features = ["nightly"] }

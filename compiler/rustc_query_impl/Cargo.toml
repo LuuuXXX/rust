@@ -6,7 +6,8 @@ edition = "2021"
 [dependencies]
 # tidy-alphabetical-start
 field-offset = "0.3.5"
-measureme = "11"
+# Fixme: change this to the version number after new measureme released
+measureme = { git = "https://github.com/rust-lang/measureme.git", branch = "master" }
 rustc_data_structures = { path = "../rustc_data_structures" }
 rustc_errors = { path = "../rustc_errors" }
 rustc_hir = { path = "../rustc_hir" }

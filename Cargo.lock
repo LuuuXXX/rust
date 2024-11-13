@@ -2182,6 +2182,19 @@ dependencies = [
 ]
 
 [[package]]
+name = "measureme"
+version = "12.0.0"
+source = "git+https://github.com/rust-lang/measureme.git?branch=master#1bbbc6400b31e8aad5a0365254964c6b62afe332"
+dependencies = [
+ "log",
+ "memmap2",
+ "parking_lot",
+ "perf-event-open-sys",
+ "rustc-hash 1.1.0",
+ "smallvec",
+]
+
+[[package]]
 name = "memchr"
 version = "2.7.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2275,7 +2288,7 @@ dependencies = [
  "libc",
  "libffi",
  "libloading",
- "measureme",
+ "measureme 11.0.1",
  "rand",
  "regex",
  "rustc_version",
@@ -3406,7 +3419,7 @@ dependencies = [
  "bitflags 2.6.0",
  "itertools",
  "libc",
- "measureme",
+ "measureme 12.0.0",
  "object 0.36.4",
  "rustc-demangle",
  "rustc_abi",
@@ -3520,7 +3533,7 @@ dependencies = [
  "indexmap",
  "jobserver",
  "libc",
- "measureme",
+ "measureme 12.0.0",
  "memmap2",
  "parking_lot",
  "portable-atomic",
@@ -4265,7 +4278,7 @@ name = "rustc_query_impl"
 version = "0.0.0"
 dependencies = [
  "field-offset",
- "measureme",
+ "measureme 12.0.0",
  "rustc_data_structures",
  "rustc_errors",
  "rustc_hir",

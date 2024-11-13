@@ -11,7 +11,8 @@ test = false
 bitflags = "2.4.1"
 itertools = "0.12"
 libc = "0.2"
-measureme = "11"
+# Fixme: change this to the version number after new measureme released
+measureme = { git = "https://github.com/rust-lang/measureme.git", branch = "master" }
 object = { version = "0.36.3", default-features = false, features = ["std", "read"] }
 rustc-demangle = "0.1.21"
 rustc_abi = { path = "../rustc_abi" }
